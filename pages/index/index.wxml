@@ -1,0 +1,92 @@
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="title">个人密码生成器</text>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="input-section">
+    <view class="input-row">
+      <text class="label required">关键词-如中文名</text>
+      <input
+        class="input"
+        placeholder="如：张三、项目A"
+        value="{{keyword}}"
+        bindinput="onKeywordInput"
+        maxlength="20"
+      />
+    </view>
+
+    <view class="input-row">
+      <text class="label required">标签-如系统名</text>
+      <input
+        class="input"
+        placeholder="如：公司OA"
+        value="{{label}}"
+        bindinput="onLabelInput"
+        maxlength="20"
+      />
+    </view>
+
+    <view class="input-row">
+      <text class="label required">种子-生密文</text>
+      <view class="input-with-hint">
+        <input
+          class="input"
+          placeholder="如：520"
+          value="{{seed}}"
+          bindinput="onSeedInput"
+          type="number"
+          maxlength="10"
+        />
+        <text class="hint-icon" bindtap="onShowKeyboard">?</text>
+      </view>
+    </view>
+
+    <view class="input-row">
+      <text class="label">用途描述（可选）</text>
+      <textarea
+        class="textarea"
+        placeholder="如：公司OA系统登录密码"
+        value="{{description}}"
+        bindinput="onDescriptionInput"
+        maxlength="100"
+        auto-height
+      />
+    </view>
+  </view>
+
+  <!-- 生成按钮 -->
+  <button class="btn-generate" bindtap="onGenerate">
+    <text>生成密码</text>
+  </button>
+
+  <!-- 结果区域 -->
+  <view class="result-section" wx:if="{{currentPassword}}">
+    <view class="result-header">
+      <text class="result-title">生成结果</text>
+      <view class="strength-badge strength-{{strength.level}}">
+        {{strength.label}}
+      </view>
+    </view>
+
+    <view class="password-display" bindlongpress="onCopy">
+      <text class="password-text">{{currentPassword}}</text>
+      <text class="copy-hint">长按复制</text>
+    </view>
+
+    <view class="action-buttons">
+      <button class="btn-action btn-copy" bindtap="onCopy">
+        <text>复制</text>
+      </button>
+      <button class="btn-action btn-save" bindtap="onSave" disabled="{{isSaved}}">
+        <text>{{isSaved ? '已保存' : '保存'}}</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 底部导航 -->
+  <view class="footer">
+    <text class="history-link" bindtap="onViewHistory">查看历史记录 ›</text>
+  </view>
+</view>

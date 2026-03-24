@@ -1,0 +1,226 @@
+.container {
+  min-height: 100vh;
+  padding: 30rpx 30rpx 20rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* 标题区域 */
+.header {
+  text-align: center;
+  margin-bottom: 20rpx;
+  color: white;
+}
+
+.title {
+  display: block;
+  font-size: 44rpx;
+  font-weight: bold;
+}
+
+/* 输入区域 */
+.input-section {
+  background: white;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 10rpx 40rpx rgba(0, 0, 0, 0.1);
+}
+
+.input-row {
+  margin-bottom: 30rpx;
+}
+
+.input-row:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+  font-weight: 500;
+}
+
+.label.required::after {
+  content: ' *';
+  color: #ff4d4f;
+}
+
+.input {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 24rpx;
+  background: #f5f5f5;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.input-with-hint {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-hint .input {
+  flex: 1;
+  padding-right: 70rpx;
+  box-sizing: border-box;
+}
+
+.hint-icon {
+  position: absolute;
+  right: 24rpx;
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  font-size: 24rpx;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 100rpx;
+  padding: 16rpx 24rpx;
+  background: #f5f5f5;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+/* 生成按钮 */
+.btn-generate {
+  width: 100%;
+  height: 88rpx;
+  background: white;
+  color: #667eea;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.3);
+  margin-bottom: 20rpx;
+}
+
+.btn-generate::after {
+  border: none;
+}
+
+/* 结果区域 */
+.result-section {
+  background: white;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  box-shadow: 0 10rpx 40rpx rgba(0, 0, 0, 0.1);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.result-title {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.strength-badge {
+  padding: 8rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+}
+
+.strength-weak {
+  background: #fff1f0;
+  color: #ff4d4f;
+}
+
+.strength-medium {
+  background: #fffbe6;
+  color: #faad14;
+}
+
+.strength-strong {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.password-display {
+  position: relative;
+  background: #f5f5f5;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+
+.password-text {
+  display: block;
+  font-family: 'Courier New', monospace;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  word-break: break-all;
+  letter-spacing: 1rpx;
+}
+
+.copy-hint {
+  display: block;
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 12rpx;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn-action {
+  flex: 1;
+  height: 80rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-action::after {
+  border: none;
+}
+
+.btn-copy {
+  background: #667eea;
+  color: white;
+}
+
+.btn-save {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.btn-save[disabled] {
+  opacity: 0.5;
+}
+
+/* 底部 */
+.footer {
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.history-link {
+  color: white;
+  font-size: 26rpx;
+  opacity: 0.8;
+}

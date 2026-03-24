@@ -1,0 +1,85 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input
+      class="search-input"
+      placeholder="搜索标签"
+      value="{{searchKeyword}}"
+      bindinput="onSearchInput"
+    />
+  </view>
+
+  <!-- 密码列表 -->
+  <view class="records-list" wx:if="{{filteredRecords.length > 0}}">
+    <view
+      class="record-row"
+      wx:for="{{filteredRecords}}"
+      wx:key="id"
+      bindtap="onViewDetail"
+      data-id="{{item.id}}"
+    >
+      <view class="row-cell cell-label">{{item.label}}</view>
+      <view class="row-cell cell-keyword">{{item.keyword}}</view>
+      <view class="row-cell cell-seed">{{item.seed}}</view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <text class="empty-icon">📝</text>
+    <text class="empty-text">暂无保存的密码记录</text>
+    <button class="btn-add-first" bindtap="onAddNew">去生成</button>
+  </view>
+</view>
+
+<!-- 详情弹窗 -->
+<view class="detail-modal" wx:if="{{showDetail}}" bindtap="onCloseDetail">
+  <view class="detail-content" catchtap="onStopPropagation">
+    <view class="detail-header">
+      <text class="detail-title">{{currentRecord.label}}</text>
+      <text class="detail-close" bindtap="onCloseDetail">✕</text>
+    </view>
+
+    <view class="detail-body">
+      <!-- 密码显示 -->
+      <view class="detail-password">
+        <text class="password-text">{{currentRecord.password}}</text>
+        <text class="copy-btn" bindtap="onCopyPassword">复制</text>
+      </view>
+
+      <!-- 关键信息 -->
+      <view class="detail-info">
+        <view class="info-row">
+          <text class="info-label">关键词</text>
+          <text class="info-value">{{currentRecord.keyword}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">标签</text>
+          <text class="info-value">{{currentRecord.label}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">种子</text>
+          <text class="info-value">{{currentRecord.seed}}</text>
+        </view>
+      </view>
+
+      <!-- 用途描述 -->
+      <view class="detail-description" wx:if="{{currentRecord.description}}">
+        <text class="desc-label">用途描述</text>
+        <text class="desc-text">{{currentRecord.description}}</text>
+        <!-- URL链接 -->
+        <view class="desc-links" wx:if="{{currentRecord.urls.length > 0}}">
+          <block wx:for="{{currentRecord.urls}}" wx:key="index" wx:for-item="url">
+            <text class="url-link" bindtap="onOpenUrl" data-url="{{url}}">{{url}}</text>
+          </block>
+        </view>
+      </view>
+
+      <!-- 操作按钮 -->
+      <view class="detail-actions">
+        <button class="detail-btn btn-copy-main" bindtap="onCopyPassword">复制密码</button>
+        <button class="detail-btn btn-delete" bindtap="onDeleteRecord">删除记录</button>
+      </view>
+    </view>
+  </view>
+</view>
